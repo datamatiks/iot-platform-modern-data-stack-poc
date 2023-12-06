@@ -55,4 +55,4 @@
 
 ### Meetup Presentation
 
-[Moder Data Stack PPT](meetup-ppt.pdf)
+[Moder Data Stack PPT](images/meetup-ppt.pdf)
