@@ -1,0 +1,53 @@
+###
+### A complete description of a Prefect Deployment for flow 'extract-file-flow'
+###
+name: extract-file-dev-deploy-15mins
+description: null
+version: 0bc5c6c7e9e39e9311ec3a917f1e7687
+# The work queue that will handle this deployment's runs
+work_queue_name: my-demo-agent
+work_pool_name: null
+tags: []
+parameters: {}
+schedule:
+  interval: 900.0
+  anchor_date: '2023-10-16T13:00:14.413188+00:00'
+  timezone: UTC
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: /code
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: extract-file-flow
+manifest_path: null
+storage: null
+path: /code
+entrypoint: src/flows/extract_flow.py:extract_file_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    name:
+      title: name
+      default: 'Gauge Data Extract'
+      position: 0
+    log_prints:
+      title: log_prints
+      default: true
+      position: 1
+  required: null
+  definitions: null
+timestamp: '2023-10-10T13:00:14.413724+00:00'
+triggers: []
+enforce_parameter_schema: null

@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    command: uvicorn src.api.main:app --host 0.0.0.0 --proxy-headers --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - db:/code/db
+    networks:
+            default:
+                aliases:
+                    - iot-platform-demo-api.dev
+  flows:
+    build: .
+    #command:  python src/app/etl_flow.py && prefect deployment run ingest-gauge-data/ingest-15-mins
+    command:  sh src/flows/deploy.sh
+      - "8080:8080"
+    volumes:
+      - db:/code/db
+    environment:
+      - PREFECT_API_KEY=${PREFECT_API_KEY}
+      - PREFECT_API_URL=${PREFECT_API_URL}
+  web:
+    build: .
+    command: streamlit run src/web/weatherboard_app.py
+    ports:
+      - "8501:8501"  
+    volumes:
+      - db:/code/db
+volumes:
+  db:
+    driver: local

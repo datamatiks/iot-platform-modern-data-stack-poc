@@ -1,0 +1,50 @@
+###
+### A complete description of a Prefect Deployment for flow 'init-db-flow'
+###
+name: init-db-dev-deploy
+description: null
+version: f9003a9cb52cd7bf30959189a5a18fd0
+# The work queue that will handle this deployment's runs
+work_queue_name: my-demo-agent
+work_pool_name: null
+tags: []
+parameters: {}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: /code
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: init-db-flow
+manifest_path: null
+storage: null
+path: /code
+entrypoint: src/flows/init_flow.py:init_db_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    name:
+      title: name
+      default: 'Initialize DB flow '
+      position: 0
+    log_prints:
+      title: log_prints
+      default: true
+      position: 1
+  required: null
+  definitions: null
+timestamp: '2023-10-10T12:04:49.589078+00:00'
+triggers: []
+enforce_parameter_schema: null
