@@ -19,7 +19,7 @@ from datetime import datetime
 load_dotenv()
 
 #API_URL = 'http://0.0.0.0:8000'
-API_URL = 'http://iot-platform-demo-api-1:8000/api/v1'
+API_URL = 'http://iot-platform-modern-data-stack-poc-api-1:8000/api/v1'
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 
 dt_now = datetime.now()
