@@ -32,8 +32,9 @@
 
     `$ eval $(pdm venv activate)`
 
+4. Create '.env' variable  inside root directory by renaming .sample-env and then provide your credentials
 
-4. Run docker  from root directory
+5. Run docker  from root directory
 
     `$ docker compose up`
 
